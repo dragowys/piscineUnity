@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour {
 	public float speed = 0.0f;
 	bool up = true;
 	public float radius = 0.3f;
+	public bool run = true;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +17,8 @@ public class Ball : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (!run)
+			return ;
 		if (speed != 0.0f)
 		if (up)
 			transform.Translate(new Vector3(0, speed, 0));
@@ -41,7 +44,8 @@ public class Ball : MonoBehaviour {
 		}
 		if (transform.position.y > 3 - radius && transform.position.y < 3 + radius && speed < 0.15)
 		{
-			Destroy(gameObject);
+			transform.Translate(new Vector3(0, 0, 10));
+			run = false;
 		}
 	}
 }

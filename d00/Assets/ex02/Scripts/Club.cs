@@ -18,8 +18,8 @@ public class Club : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!balle)
-			Destroy(gameObject);
+		if (!balleSc.run)
+			return ;
 		if (Input.GetKey("space") && balleSc.speed == 0.0f)
 		{
 			force += 0.05f;
